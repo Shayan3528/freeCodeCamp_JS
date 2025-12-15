@@ -1,4 +1,3 @@
-
 // let userInput ;
 
 // if(userInput || "Guest"){
@@ -251,18 +250,30 @@
 // }
 // console.log(lookUpProfile("Sherlock", "likes"));
 
+// Build a String Repeating Function
 
-// Build a String Repeating Function 
+// const repeatStringNumTimes = (str,num)=>{
+//     let repeatString="";
+//     if(num<=0){
+//         return "";
+//     }
+//     for(let i = 0;i<num;i++){
+//         repeatString +=str;
+//     }
+//     return repeatString;
+// }
 
-const repeatStringNumTimes = (str,num)=>{
-    let repeatString="";
-    if(num<=0){
-        return "";
+// console.log(repeatStringNumTimes("abc",3));
+
+/// Build a Missing Letter Detector 
+
+const fearNotLetter = (str) => {
+  for(let i=1;i<str.length;i++){
+    if(str.charCodeAt(i) !==str.charCodeAt(i-1)+1){
+        return String.fromCharCode(str.charCodeAt(i-1)+1);
     }
-    for(let i = 0;i<num;i++){
-        repeatString +=str; 
-    }
-    return repeatString;
-}
+  }
+};
 
-console.log(repeatStringNumTimes("abc",3));
+console.log(fearNotLetter('abce'));
+
