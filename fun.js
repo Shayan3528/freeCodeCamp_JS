@@ -250,3 +250,19 @@
 //     return "No such contact";
 // }
 // console.log(lookUpProfile("Sherlock", "likes"));
+
+
+// Build a String Repeating Function 
+
+const repeatStringNumTimes = (str,num)=>{
+    let repeatString="";
+    if(num<=0){
+        return "";
+    }
+    for(let i = 0;i<num;i++){
+        repeatString +=str; 
+    }
+    return repeatString;
+}
+
+console.log(repeatStringNumTimes("abc",3));
