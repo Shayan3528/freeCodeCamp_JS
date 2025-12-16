@@ -265,15 +265,51 @@
 
 // console.log(repeatStringNumTimes("abc",3));
 
-/// Build a Missing Letter Detector 
+/// Build a Missing Letter Detector
 
-const fearNotLetter = (str) => {
-  for(let i=1;i<str.length;i++){
-    if(str.charCodeAt(i) !==str.charCodeAt(i-1)+1){
-        return String.fromCharCode(str.charCodeAt(i-1)+1);
+// const fearNotLetter = (str) => {
+//   for(let i=1;i<str.length;i++){
+//     if(str.charCodeAt(i) !==str.charCodeAt(i-1)+1){
+//         return String.fromCharCode(str.charCodeAt(i-1)+1);
+//     }
+//   }
+// };
+
+// console.log(fearNotLetter('abce'));
+
+// the largest Number Finder
+
+// class ClassName {
+//   constructor(name, year) {
+//     this.name = name;
+//     this.year = year;
+//   }
+//   getAge() {
+//     const date = new Date();
+//     let presentYear = date.getFullYear();
+//     return presentYear - this.year;
+//   }
+// }
+
+// const person = new ClassName("Alice", 1995);
+
+// console.log(person.year);
+
+
+
+function largestOfAll(arr){
+    let maxValue =[];
+    for(let i =0;i<arr.length;i++){
+        let max= arr[i][0];
+        for(let j=1;j<arr[i].length;j++){
+            if(max < arr[i][j]){
+                max = arr[i][j];
+            }
+            
+        }
+        maxValue.push(max);
     }
-  }
-};
+    return maxValue;
+}
 
-console.log(fearNotLetter('abce'));
-
+console.log(largestOfAll([[17, 23, 25, 12], [25, 7, 34, 48], [4, -10, 18, 21], [-72, -3, -17, -10]]));
