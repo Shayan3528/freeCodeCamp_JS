@@ -295,21 +295,104 @@
 
 // console.log(person.year);
 
+// function largestOfAll(arr){
+//     let maxValue =[];
+//     for(let i =0;i<arr.length;i++){
+//         let max= arr[i][0];
+//         for(let j=1;j<arr[i].length;j++){
+//             if(max < arr[i][j]){
+//                 max = arr[i][j];
+//             }
 
+//         }
+//         maxValue.push(max);
+//     }
+//     return maxValue;
+// }
 
-function largestOfAll(arr){
-    let maxValue =[];
-    for(let i =0;i<arr.length;i++){
-        let max= arr[i][0];
-        for(let j=1;j<arr[i].length;j++){
-            if(max < arr[i][j]){
-                max = arr[i][j];
-            }
-            
-        }
-        maxValue.push(max);
-    }
-    return maxValue;
-}
+// console.log(largestOfAll([[17, 23, 25, 12], [25, 7, 34, 48], [4, -10, 18, 21], [-72, -3, -17, -10]]));
 
-console.log(largestOfAll([[17, 23, 25, 12], [25, 7, 34, 48], [4, -10, 18, 21], [-72, -3, -17, -10]]));
+// const findElement =(arr,fun)=>{
+
+// }
+
+// console.log([1,2,3],function(){
+
+// })
+
+// function binarySearch(n){
+//     let left = 1
+//     let right = n
+//     let ans = 0;
+
+//     while(left <=right){
+//         let mid = Math.floor(left+(right-left)/2);
+
+//         if(mid*mid ===n){
+//             return mid;
+//         }else if(mid*mid <n){
+//             ans = mid;
+//             left = mid+1;
+//         }else{
+//             right = mid -1;
+//         }
+//     }
+//     return ans;
+// }
+
+// console.log(binarySearch(6))
+
+/// climbing Stairs
+
+// function climbingStairs(n){
+
+//     if(n<=2){
+//         return n;
+//     }
+
+//     let first = 1;
+//     let second = 2;
+//     let current = 0;
+
+//     for(let i =3;i<=n;i++){
+//         current = first + second;
+//         first = second;
+//         second = current;
+
+//     }
+
+//     return current;
+// }
+
+// console.log(climbingStairs(4));
+
+// function columnNumber(columnNumber) {
+//   let result = 0;
+//   let index = columnNumber.length-1;
+//   for (let i = 0; i < columnNumber.length; i++) {
+//     let charCode = columnNumber.charCodeAt(i) - "A".charCodeAt(0) + 1;
+//     result = result + charCode * Math.pow(26,index);
+//     index--;
+//   }
+
+//   return result;
+// }
+
+// console.log(columnNumber("A"));
+
+// function findString(columnNumber){
+//     let result = "";
+//     let charCode = "";
+//     while(columnNumber>0){
+//         columnNumber -=1;
+//         charCode = (columnNumber % 26)+"A".charCodeAt(0);
+//         let char = String.fromCharCode(charCode);
+//         result = char + result;
+//         columnNumber = Math.floor (columnNumber/26);
+//     }
+
+//     return result;
+// }
+
+// console.log(findString(28));
+
