@@ -416,29 +416,47 @@
 //   }
 //   return ans;
 // };
-
 // console.log(arrayAdd([2, 5, 1, 3, 4, 7], 3));
+// const findMaxConsecutiveOnes = function (nums) {
+//   let n = nums.length;
+//   let count = 0;
 
-const findMaxConsecutiveOnes = function (nums) {
+//   let max = 0;
+//   for (let i = 0; i < n; i++) {
+//     if (nums[i] === 1) {
+//       count++;
+//       if(count>max){
+//         max=count;
+//       }
+//     } else {
+//       count = 0;
+//     }
+//   }
+
+//   return max;
+// };
+// console.log(findMaxConsecutiveOnes([1, 0, 1, 1, 0, 1]));
+// console.log(findMaxConsecutiveOnes([1, 1, 0, 1, 1, 1]));
+
+/* find duplicate and missing value from an array */
+var findErrorNums = function (nums) {
   let n = nums.length;
-  let count = 0;
+  const count = new Array(n+1).fill(0);
+  for(let num of nums){
+ 
+    count[num]++;
+  }
+  let duplicate =-1;
+  let missing = -1;
 
-  let max = 0;
-  for (let i = 0; i < n; i++) {
-    if (nums[i] === 1) {
-      count++;
-      if(count>max){
-        max=count;
-      }
-    } else {
-     
-      count = 0;
-    }
+  for(let i =1;i<=n;i++){
+    if(count[i]===2) duplicate = i;
+    if(count[i]===0) missing = i;
   }
 
-  return max;
+  return [duplicate,missing]
+  
 };
 
-console.log(findMaxConsecutiveOnes([1, 0, 1, 1, 0, 1]));
-
-console.log(findMaxConsecutiveOnes([1, 1, 0, 1, 1, 1]));
+let count = findErrorNums([2,2]);
+console.log(count);
