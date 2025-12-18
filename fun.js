@@ -405,3 +405,16 @@
 // }
 
 // console.log(frankenSplice([1,2,3],[4,5],1));
+
+const arrayAdd = (nums, n) => {
+  let arr1 = nums.slice(0, n);
+  let arr2 = nums.slice(n);
+  let ans = [];
+  for(let i=0;i<(2*n);i++){
+    let index = Math.floor(i/2);
+    (i%2===0)? ans.push(arr1[index]) : ans.push(arr2[index]);
+  }
+  return ans;
+};
+
+console.log(arrayAdd([2, 5, 1, 3, 4, 7], 3));
