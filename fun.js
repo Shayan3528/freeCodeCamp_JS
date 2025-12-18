@@ -396,3 +396,12 @@
 
 // console.log(findString(28));
 
+// const frankenSplice=(array1,array2,index)=>{
+//   let part1 = array2.slice(0,index);
+//   let part2 = array2.slice(1);
+//   let result = part1.concat(array1).concat(part2);
+//   return result;
+
+// }
+
+// console.log(frankenSplice([1,2,3],[4,5],1));
