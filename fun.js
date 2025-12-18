@@ -406,15 +406,39 @@
 
 // console.log(frankenSplice([1,2,3],[4,5],1));
 
-const arrayAdd = (nums, n) => {
-  let arr1 = nums.slice(0, n);
-  let arr2 = nums.slice(n);
-  let ans = [];
-  for(let i=0;i<(2*n);i++){
-    let index = Math.floor(i/2);
-    (i%2===0)? ans.push(arr1[index]) : ans.push(arr2[index]);
+// const arrayAdd = (nums, n) => {
+//   let arr1 = nums.slice(0, n);
+//   let arr2 = nums.slice(n);
+//   let ans = [];
+//   for(let i=0;i<(2*n);i++){
+//     let index = Math.floor(i/2);
+//     (i%2===0)? ans.push(arr1[index]) : ans.push(arr2[index]);
+//   }
+//   return ans;
+// };
+
+// console.log(arrayAdd([2, 5, 1, 3, 4, 7], 3));
+
+const findMaxConsecutiveOnes = function (nums) {
+  let n = nums.length;
+  let count = 0;
+
+  let max = 0;
+  for (let i = 0; i < n; i++) {
+    if (nums[i] === 1) {
+      count++;
+      if(count>max){
+        max=count;
+      }
+    } else {
+     
+      count = 0;
+    }
   }
-  return ans;
+
+  return max;
 };
 
-console.log(arrayAdd([2, 5, 1, 3, 4, 7], 3));
+console.log(findMaxConsecutiveOnes([1, 0, 1, 1, 0, 1]));
+
+console.log(findMaxConsecutiveOnes([1, 1, 0, 1, 1, 1]));
