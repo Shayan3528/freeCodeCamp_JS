@@ -439,24 +439,92 @@
 // console.log(findMaxConsecutiveOnes([1, 1, 0, 1, 1, 1]));
 
 /* find duplicate and missing value from an array */
-var findErrorNums = function (nums) {
-  let n = nums.length;
-  const count = new Array(n+1).fill(0);
-  for(let num of nums){
- 
-    count[num]++;
-  }
-  let duplicate =-1;
-  let missing = -1;
+// var findErrorNums = function (nums) {
+//   let n = nums.length;
+//   const count = new Array(n+1).fill(0);
+//   for(let num of nums){
 
-  for(let i =1;i<=n;i++){
-    if(count[i]===2) duplicate = i;
-    if(count[i]===0) missing = i;
-  }
+//     count[num]++;
+//   }
+//   let duplicate =-1;
+//   let missing = -1;
 
-  return [duplicate,missing]
-  
-};
+//   for(let i =1;i<=n;i++){
+//     if(count[i]===2) duplicate = i;
+//     if(count[i]===0) missing = i;
+//   }
 
-let count = findErrorNums([2,2]);
-console.log(count);
+//   return [duplicate,missing]
+
+// };
+
+// let count = findErrorNums([2,2]);
+// console.log(count);
+/**
+ * Counting Sort  Algorithm
+ */
+// const countingSort =(arr)=>{
+//   let max = Math.max(...arr);
+//   let count = new Array(max+1).fill(0);
+
+//   for(let num of arr){
+//     count[num]++;
+//   }
+//   console.log(count);
+//   let sorted = [];
+
+//   for(let i =0;i<=max;i++){
+
+//     while(count[i]>0){
+//       sorted.push(i);
+//       count[i]--;
+//     }
+//   }
+
+// return sorted;
+// }
+
+// console.log(countingSort([8,1,2,2,3]));
+
+// Build A Pyramid Generator
+
+// function buildPyramid(pattern, rows, isInverted) {
+//   let result = "\n";
+//   if (!isInverted) {
+//     // pyramid upwords
+//     for (let i = 0; i < rows; i++) {
+//       let space = rows - i - 1;
+//       let chars = 2 * i + 1;
+//       result += " ".repeat(space);
+//       result += pattern.repeat(chars);
+//       result += "\n";
+//     }
+//   } else {
+//     /// pyramid downword
+//     for (let i = rows - 1; i >= 0; i--) {
+//       let space = rows - i - 1;
+//       let chars = 2 * i + 1;
+//       result += " ".repeat(space);
+//       result += pattern.repeat(chars);
+//       result += "\n";
+//     }
+//   }
+//   return result;
+// }
+
+// console.log(buildPyramid("0", 4, true));
+
+/*** 
+ * remove falsy value from an array
+ */
+let arr = [false , 23, 0 , null,undefined,""];
+const bouncer =(arr)=>{
+  let result = arr.filter(item=> {
+    if(item) {
+      return true;
+    }return false;
+  });
+return result;
+}
+
+console.log(bouncer(arr));
