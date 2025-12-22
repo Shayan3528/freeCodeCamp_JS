@@ -514,17 +514,63 @@
 
 // console.log(buildPyramid("0", 4, true));
 
-/*** 
+/***
  * remove falsy value from an array
  */
-let arr = [false , 23, 0 , null,undefined,""];
-const bouncer =(arr)=>{
-  let result = arr.filter(item=> {
-    if(item) {
-      return true;
-    }return false;
-  });
-return result;
-}
+// let arr = [false , 23, 0 , null,undefined,""];
+// const bouncer =(arr)=>{
+//   let result = arr.filter(item=> {
+//     if(item) {
+//       return true;
+//     }return false;
+//   });
+// return result;
+// }
 
-console.log(bouncer(arr));
+// console.log(bouncer(arr));
+
+// remove an element from an array
+// let arr = ["alice","bob", 0 , "a","B"];
+
+// for(let i =0;i<arr.length;i++){
+//   if(arr[i]===0){
+//     arr.splice(i,1);
+//   }
+// }
+
+// console.log(arr);
+
+// const removeProduct = (productName, productQuantity) => {
+//   let index = findProductIndex(productName);
+//   if (index !== -1) {
+//     if(  inventory[i].quantity < productQuantity){
+//       console.log(`Not enough ${productName.toLowerCase()} available, remaining pieces: ${ inventory[i].quantity}`);
+//     }
+//     inventory[i].quantity -= productQuantity;
+//     console.log(`Remaining ${productName.toLowerCase()} pieces: ${inventory[i].quantity}`);
+//     if (inventory[i].quantity === 0) {
+//       inventory.splice(i, 1);
+//     }
+//   }
+//   console.log(`${productName.toLowerCase()} not found`);
+// }
+
+/** 
+ * How many Numbers Are Smaller than the current number
+ */
+const smallerNumbersThanCurrent = function (nums) {
+  let result = [];
+  for(let num of nums){
+    let count =0;
+    for(let i=0;i<nums.length;i++){
+      if(num>nums[i]){
+        count++;
+      }
+    }
+    result.push(count);
+  }
+ 
+  return result;
+};
+
+console.log(smallerNumbersThanCurrent([8, 1, 2, 2, 3]));
