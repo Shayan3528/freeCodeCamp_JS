@@ -619,19 +619,43 @@
  * DNA Pair generator
  */
 
-const pairElement = (str) => {
-  const pair = {
-    A: "T",
-    T: "A",
-    C: "G",
-    G: "C",
-  };
+// const pairElement = (str) => {
+//   const pair = {
+//     A: "T",
+//     T: "A",
+//     C: "G",
+//     G: "C",
+//   };
 
-  let result = [];
-  for (let char of str) {
-    result.push([char,pair[char]]);
+//   let result = [];
+//   for (let char of str) {
+//     result.push([char,pair[char]]);
+//   }
+//   return result;
+// };
+
+// console.log(pairElement("CTCTA"));
+
+const convertHTML = (str) => {
+  const htmlEntities = {
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt:",
+    '"':"quot;",
+    "'":"&apos;"
   }
-  return result;
-};
+  let result="";
+  for(let char of str){
+    if(htmlEntities[char]){
+      result +=htmlEntities[char];
+      
+    }else{
+      result +=char;
+    }
+    
+  }
 
-console.log(pairElement("CTCTA"));
+  return result;
+}
+
+console.log(convertHTML("Dolce & Gabbana"));
