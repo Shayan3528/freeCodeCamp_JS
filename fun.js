@@ -555,7 +555,7 @@
 //   console.log(`${productName.toLowerCase()} not found`);
 // }
 
-/** 
+/**
  * How many Numbers Are Smaller than the current number
  */
 // const smallerNumbersThanCurrent = function (nums) {
@@ -569,13 +569,11 @@
 //     }
 //     result.push(count);
 //   }
- 
+
 //   return result;
 // };
 
 // console.log(smallerNumbersThanCurrent([8, 1, 2, 2, 3]));
-
-
 
 // const countingSort = (nums)=>{
 //     let max = Math.max(...nums);
@@ -601,19 +599,39 @@
 //     return result;
 // }
 
-
 // console.log(countingSort([2,1,5,6,7]));
 
-const generatePassword =(len)=>{
-  let chars ="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
-  let password="";
-   for(let i=0;i<len;i++){
-    const randomIndex = Math.floor(Math.random()*chars.length);
-    console.log(randomIndex);
-    password +=chars[ randomIndex];
-   }
-  return password;
-}
+// const generatePassword =(len)=>{
+//   let chars ="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+//   let password="";
+//    for(let i=0;i<len;i++){
+//     const randomIndex = Math.floor(Math.random()*chars.length);
+//     console.log(randomIndex);
+//     password +=chars[ randomIndex];
+//    }
+//   return password;
+// }
 
-let password = generatePassword(8);
-console.log(password);
+// let password = generatePassword(8);
+// console.log(password);
+
+/**
+ * DNA Pair generator
+ */
+
+const pairElement = (str) => {
+  const pair = {
+    A: "T",
+    T: "A",
+    C: "G",
+    G: "C",
+  };
+
+  let result = [];
+  for (let char of str) {
+    result.push([char,pair[char]]);
+  }
+  return result;
+};
+
+console.log(pairElement("CTCTA"));
