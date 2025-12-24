@@ -660,24 +660,52 @@
 
 // console.log(convertHTML("Dolce & Gabbana"));
 
-const oddSumFib = (n) => {
-  if ((n === 1)) return 1;
-  let first = 0;
-  let second = 1;
-  let oddSum = 0;
+// const oddSumFib = (n) => {
+//   if ((n === 1)) return 1;
+//   let first = 0;
+//   let second = 1;
+//   let oddSum = 0;
 
+//   while (second<= n) {
+//     if(second %2 !==0){
+//       oddSum += second;
+//     }
+//     let next = first + second;
+//     first = second;
+//     second = next;
+//   }
 
-  while (second<= n) {
-    if(second %2 !==0){
-      oddSum += second;
+//   return oddSum;
+// };
+// console.log(oddSumFib(4));
+
+/**
+ * Element Skipper
+ */
+
+function func(n) {
+  return n > 5;
+}
+const dropElements = (arr, func) => {
+  let index = 0;
+  let isFind = false;
+  for (let i = 0; i < arr.length; i++) {
+    isFind = func(arr[i]);
+    if (isFind) {
+      index = i;
+      break;
     }
-    let next = first + second;
-    first = second;
-    second = next;
+  }
+  let result = [];
+  if (isFind) {
+    for (let i = index; i < arr.length; i++) {
+      result.push(arr[i]);
+    }
+  }else{
+    return result;
   }
 
-  return oddSum;
+  return result;
 };
 
-
-console.log(oddSumFib(4));
+console.log(dropElements([1, 2, 3, 4], func));
