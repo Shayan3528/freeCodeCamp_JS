@@ -558,19 +558,62 @@
 /** 
  * How many Numbers Are Smaller than the current number
  */
-const smallerNumbersThanCurrent = function (nums) {
-  let result = [];
-  for(let num of nums){
-    let count =0;
-    for(let i=0;i<nums.length;i++){
-      if(num>nums[i]){
-        count++;
-      }
-    }
-    result.push(count);
-  }
+// const smallerNumbersThanCurrent = function (nums) {
+//   let result = [];
+//   for(let num of nums){
+//     let count =0;
+//     for(let i=0;i<nums.length;i++){
+//       if(num>nums[i]){
+//         count++;
+//       }
+//     }
+//     result.push(count);
+//   }
  
-  return result;
-};
+//   return result;
+// };
 
-console.log(smallerNumbersThanCurrent([8, 1, 2, 2, 3]));
+// console.log(smallerNumbersThanCurrent([8, 1, 2, 2, 3]));
+
+
+
+// const countingSort = (nums)=>{
+//     let max = Math.max(...nums);
+//     let count = new Array(max+1).fill(0);
+//     let result=[];
+//     for(let num of nums){
+//       count[num]++;
+//     }
+//     let sorted  =[];
+
+//     for(let i=0;i<count.length;i++){
+//       while(count[i]>0){
+//         sorted.push(i);
+//         count[i]--;
+//       }
+//     }
+//     for(let i=0;i<sorted.length;i++){
+//       if(sorted[i] !==i+1){
+//          result.push(i);
+//       }
+//     }
+
+//     return result;
+// }
+
+
+// console.log(countingSort([2,1,5,6,7]));
+
+const generatePassword =(len)=>{
+  let chars ="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+  let password="";
+   for(let i=0;i<len;i++){
+    const randomIndex = Math.floor(Math.random()*chars.length);
+    console.log(randomIndex);
+    password +=chars[ randomIndex];
+   }
+  return password;
+}
+
+let password = generatePassword(8);
+console.log(password);
