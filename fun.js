@@ -636,26 +636,48 @@
 
 // console.log(pairElement("CTCTA"));
 
-const convertHTML = (str) => {
-  const htmlEntities = {
-    "&":"&amp;",
-    "<":"&lt;",
-    ">":"&gt:",
-    '"':"quot;",
-    "'":"&apos;"
-  }
-  let result="";
-  for(let char of str){
-    if(htmlEntities[char]){
-      result +=htmlEntities[char];
-      
-    }else{
-      result +=char;
+// const convertHTML = (str) => {
+//   const htmlEntities = {
+//     "&":"&amp;",
+//     "<":"&lt;",
+//     ">":"&gt:",
+//     '"':"quot;",
+//     "'":"&apos;"
+//   }
+//   let result="";
+//   for(let char of str){
+//     if(htmlEntities[char]){
+//       result +=htmlEntities[char];
+
+//     }else{
+//       result +=char;
+//     }
+
+//   }
+
+//   return result;
+// }
+
+// console.log(convertHTML("Dolce & Gabbana"));
+
+const oddSumFib = (n) => {
+  if ((n === 1)) return 1;
+  let first = 0;
+  let second = 1;
+  let oddSum = 0;
+
+
+  while (second<= n) {
+    if(second %2 !==0){
+      oddSum += second;
     }
-    
+    let next = first + second;
+    first = second;
+    second = next;
   }
 
-  return result;
-}
+  return oddSum;
+};
 
-console.log(convertHTML("Dolce & Gabbana"));
+
+console.log(oddSumFib(4));
