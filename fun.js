@@ -774,31 +774,62 @@
 
 // console.log(primeNumberArray(20));
 
-const sumPrimes=(num)=>{
-  if(num <2) return 0;
-  let primes = new Array(num+1).fill(true);
-  primes[0]=primes[1]= false;
+// const sumPrimes=(num)=>{
+//   if(num <2) return 0;
+//   let primes = new Array(num+1).fill(true);
+//   primes[0]=primes[1]= false;
 
-  for(let i=2;i*i<=num;i++){
-    if(primes[i]){
-      for(let j=i*i;j<=num;j=j+i){
-        primes[j]= false;
-      }
-    }
-  }
+//   for(let i=2;i*i<=num;i++){
+//     if(primes[i]){
+//       for(let j=i*i;j<=num;j=j+i){
+//         primes[j]= false;
+//       }
+//     }
+//   }
 
-  let primeArray=[];
-  for(let i=2;i<=num;i++){
-    if(primes[i]){
-      primeArray.push(i);
-    }
-  }
-  let sum = 0;
-  for(let i=0;i<primeArray.length;i++){
-    sum +=primeArray[i];
-  }
-  return sum;
+//   let primeArray=[];
+//   for(let i=2;i<=num;i++){
+//     if(primes[i]){
+//       primeArray.push(i);
+//     }
+//   }
+//   let sum = 0;
+//   for(let i=0;i<primeArray.length;i++){
+//     sum +=primeArray[i];
+//   }
+//   return sum;
 
+// }
+
+// console.log(sumPrimes(10));
+
+/**
+ * a-range-based-lcm 
+ */
+
+function gcd(a, b) {
+  while (b !== 0) {
+    let r = a % b;
+    a = b;
+    b = r;
+  }
+  return a;
 }
 
-console.log(sumPrimes(10));
+function lcd(a, b) {
+  return (a * b) / gcd(a, b);
+}
+
+function smallestCommons(arr) {
+  const min = Math.min(...arr);
+  const max = Math.max(...arr);
+
+  let result = min;
+  for (let i = min + 1; i <= max; i++) {
+    result = lcd(result, i);
+  }
+  return result;
+}
+
+
+console.log(smallestCommons([5, 1]));

@@ -1,0 +1,208 @@
+import React, { useState } from 'react';
+import { CheckCircle, Circle, ChevronDown, ChevronUp } from 'lucide-react';
+
+const NodeJSRoadmap = () => {
+  const [expandedSections, setExpandedSections] = useState({});
+  const [completedItems, setCompletedItems] = useState(() => {
+    const saved = localStorage.getItem('nodejs-progress');
+    return saved ? JSON.parse(saved) : {};
+  });
+
+  const roadmapData = [
+    {
+      phase: "১ম ধাপ: Node.js এর মূল বিষয়",
+      duration: "১-২ সপ্তাহ",
+      topics: [
+        { title: "Node.js কী এবং কেন?", desc: "Server-side JavaScript, V8 engine, event-driven architecture" },
+        { title: "Installation এবং Setup", desc: "Node.js ও npm install করা, প্রথম program চালানো" },
+        { title: "Node.js REPL", desc: "Interactive shell ব্যবহার করা" },
+        { title: "Modules এবং require()", desc: "Built-in modules, custom modules তৈরি করা" },
+        { title: "NPM Basics", desc: "Package install, package.json, dependencies" }
+      ]
+    },
+    {
+      phase: "২য় ধাপ: Core Concepts",
+      duration: "২-৩ সপ্তাহ",
+      topics: [
+        { title: "File System (fs)", desc: "File read/write, async vs sync operations" },
+        { title: "Events এবং EventEmitter", desc: "Custom events তৈরি এবং handle করা" },
+        { title: "Streams", desc: "Readable, Writable, Duplex, Transform streams" },
+        { title: "Buffers", desc: "Binary data নিয়ে কাজ করা" },
+        { title: "Asynchronous Programming", desc: "Callbacks, Promises, Async/Await" }
+      ]
+    },
+    {
+      phase: "৩য় ধাপ: Web Development",
+      duration: "৩-৪ সপ্তাহ",
+      topics: [
+        { title: "HTTP Module", desc: "Basic server তৈরি করা" },
+        { title: "Express.js Framework", desc: "Routing, middleware, req/res handling" },
+        { title: "RESTful API", desc: "CRUD operations, HTTP methods" },
+        { title: "Template Engines", desc: "EJS, Pug ব্যবহার করা" },
+        { title: "Static Files Serving", desc: "CSS, JS, images serve করা" }
+      ]
+    },
+    {
+      phase: "৪র্থ ধাপ: Database Integration",
+      duration: "২-৩ সপ্তাহ",
+      topics: [
+        { title: "MongoDB এবং Mongoose", desc: "NoSQL database, schema, models" },
+        { title: "PostgreSQL/MySQL", desc: "SQL database connection" },
+        { title: "CRUD Operations", desc: "Database এ data create, read, update, delete" },
+        { title: "Database Design", desc: "Relations, indexing, optimization" }
+      ]
+    },
+    {
+      phase: "৫ম ধাপ: Authentication & Security",
+      duration: "২ সপ্তাহ",
+      topics: [
+        { title: "JWT (JSON Web Tokens)", desc: "Token-based authentication" },
+        { title: "Bcrypt", desc: "Password hashing" },
+        { title: "Session Management", desc: "Express-session ব্যবহার করা" },
+        { title: "CORS", desc: "Cross-origin requests handle করা" },
+        { title: "Environment Variables", desc: ".env file এবং dotenv package" }
+      ]
+    },
+    {
+      phase: "৬ষ্ঠ ধাপ: Advanced Topics",
+      duration: "৩-৪ সপ্তাহ",
+      topics: [
+        { title: "Error Handling", desc: "Try-catch, error middleware" },
+        { title: "Testing", desc: "Jest, Mocha, Chai দিয়ে testing" },
+        { title: "WebSockets", desc: "Real-time communication (Socket.io)" },
+        { title: "File Uploads", desc: "Multer ব্যবহার করা" },
+        { title: "Email Sending", desc: "Nodemailer" },
+        { title: "Task Scheduling", desc: "Cron jobs" }
+      ]
+    },
+    {
+      phase: "৭ম ধাপ: Deployment & DevOps",
+      duration: "১-২ সপ্তাহ",
+      topics: [
+        { title: "Process Management", desc: "PM2 ব্যবহার করা" },
+        { title: "Deployment", desc: "Heroku, Vercel, AWS, DigitalOcean" },
+        { title: "Docker Basics", desc: "Containerization" },
+        { title: "CI/CD", desc: "GitHub Actions" },
+        { title: "Monitoring", desc: "Logging এবং debugging" }
+      ]
+    }
+  ];
+
+  const projects = [
+    { name: "১. Simple CLI Tool", desc: "File organizer বা todo app" },
+    { name: "২. REST API", desc: "Blog API with CRUD operations" },
+    { name: "৩. Authentication System", desc: "User signup/login with JWT" },
+    { name: "৪. Real-time Chat App", desc: "WebSocket ব্যবহার করে" },
+    { name: "৫. E-commerce Backend", desc: "Products, cart, orders management" }
+  ];
+
+  const toggleSection = (index) => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
+  };
+
+  const toggleComplete = (phaseIndex, topicIndex) => {
+    const key = `${phaseIndex}-${topicIndex}`;
+    setCompletedItems(prev => ({
+      ...prev,
+      [key]: !prev[key]
+    }));
+  };
+
+  return (
+    <div className="max-w-4xl mx-auto p-6 bg-gradient-to-br from-blue-50 to-indigo-50 min-h-screen">
+      <div className="bg-white rounded-lg shadow-lg p-8 mb-6">
+        <h1 className="text-3xl font-bold text-indigo-900 mb-2">Node.js শেখার Complete Roadmap</h1>
+        <p className="text-gray-600 mb-4">JavaScript জানা থেকে Node.js Master হওয়া পর্যন্ত</p>
+        <div className="bg-indigo-100 border-l-4 border-indigo-600 p-4 rounded">
+          <p className="text-sm text-indigo-900">
+            <strong>মোট সময়:</strong> ১৪-২০ সপ্তাহ (প্রতিদিন ১-২ ঘন্টা practice করলে)
+          </p>
+        </div>
+      </div>
+
+      {roadmapData.map((phase, phaseIndex) => (
+        <div key={phaseIndex} className="bg-white rounded-lg shadow-md mb-4 overflow-hidden">
+          <div 
+            className="bg-indigo-600 text-white p-4 cursor-pointer flex justify-between items-center hover:bg-indigo-700 transition"
+            onClick={() => toggleSection(phaseIndex)}
+          >
+            <div>
+              <h2 className="text-xl font-semibold">{phase.phase}</h2>
+              <p className="text-indigo-200 text-sm">সময়: {phase.duration}</p>
+            </div>
+            {expandedSections[phaseIndex] ? <ChevronUp /> : <ChevronDown />}
+          </div>
+          
+          {expandedSections[phaseIndex] && (
+            <div className="p-4">
+              {phase.topics.map((topic, topicIndex) => {
+                const key = `${phaseIndex}-${topicIndex}`;
+                const isComplete = completedItems[key];
+                
+                return (
+                  <div 
+                    key={topicIndex}
+                    className="border-l-2 border-gray-200 pl-4 py-3 ml-2 hover:border-indigo-400 transition cursor-pointer"
+                    onClick={() => toggleComplete(phaseIndex, topicIndex)}
+                  >
+                    <div className="flex items-start">
+                      <div className="mt-1 mr-3">
+                        {isComplete ? (
+                          <CheckCircle className="text-green-500" size={20} />
+                        ) : (
+                          <Circle className="text-gray-300" size={20} />
+                        )}
+                      </div>
+                      <div className={isComplete ? 'opacity-60' : ''}>
+                        <h3 className="font-semibold text-gray-800">{topic.title}</h3>
+                        <p className="text-sm text-gray-600">{topic.desc}</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      ))}
+
+      <div className="bg-white rounded-lg shadow-lg p-6 mt-6">
+        <h2 className="text-2xl font-bold text-indigo-900 mb-4">Practice Projects</h2>
+        <div className="space-y-3">
+          {projects.map((project, index) => (
+            <div key={index} className="border-l-4 border-green-500 pl-4 py-2">
+              <h3 className="font-semibold text-gray-800">{project.name}</h3>
+              <p className="text-sm text-gray-600">{project.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="bg-amber-50 border border-amber-200 rounded-lg p-6 mt-6">
+        <h3 className="text-lg font-bold text-amber-900 mb-3">📚 সেরা Resources:</h3>
+        <ul className="space-y-2 text-sm text-amber-900">
+          <li>• <strong>Official Docs:</strong> nodejs.org/docs</li>
+          <li>• <strong>YouTube:</strong> Traversy Media, The Net Ninja (বাংলায় Anisul Islam)</li>
+          <li>• <strong>Practice:</strong> freeCodeCamp, Codecademy</li>
+          <li>• <strong>Community:</strong> Stack Overflow, Reddit r/node</li>
+        </ul>
+      </div>
+
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mt-6">
+        <h3 className="text-lg font-bold text-blue-900 mb-3">💡 Tips:</h3>
+        <ul className="space-y-2 text-sm text-blue-900">
+          <li>✓ প্রতিটা concept হাতে-কলমে practice করুন</li>
+          <li>✓ ছোট ছোট project বানান</li>
+          <li>✓ GitHub এ code push করুন</li>
+          <li>✓ Documentation পড়ার অভ্যাস করুন</li>
+          <li>✓ Community তে active থাকুন</li>
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+export default NodeJSRoadmap;
