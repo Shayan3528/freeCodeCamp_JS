@@ -718,11 +718,20 @@
 // console.log(getIndexToIns([3, 10, 5], 11));
 
 
-const diffArray = (ar1, ar2) => {
-  let result1 = ar1.filter(item => !ar2.includes(item));
-  let result2 = ar2.filter(item=> !ar1.includes(item));
-  return result1.concat(result2);
+// const diffArray = (ar1, ar2) => {
+//   let result1 = ar1.filter(item => !ar2.includes(item));
+//   let result2 = ar2.filter(item=> !ar1.includes(item));
+//   return result1.concat(result2);
 
+// }
+
+// console.log(diffArray(["car", "bike", "bus"], ["bike", "train", "plane", "bus"]));
+/**
+ * Implement a value Remover Funtion
+ */
+
+const destroyer =(arr,...arg)=>{
+  return arr.filter(item=>!arg.includes(item));
 }
 
-console.log(diffArray(["car", "bike", "bus"], ["bike", "train", "plane", "bus"]));
+console.log(destroyer([1, 2, 3, 5, 1, 2, 3], 2, 3));
