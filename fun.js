@@ -710,9 +710,19 @@
 
 // console.log(dropElements([1, 2, 3, 4], func));
 
-const getIndexToIns = (arr, num) => {
-  arr.sort((a, b) => a - b);
-  let index= arr.findIndex((value) => value >= num);
-  return index ===-1 ? arr.length:index;
-};
-console.log(getIndexToIns([3, 10, 5], 11));
+// const getIndexToIns = (arr, num) => {
+//   arr.sort((a, b) => a - b);
+//   let index= arr.findIndex((value) => value >= num);
+//   return index ===-1 ? arr.length:index;
+// };
+// console.log(getIndexToIns([3, 10, 5], 11));
+
+
+const diffArray = (ar1, ar2) => {
+  let result1 = ar1.filter(item => !ar2.includes(item));
+  let result2 = ar2.filter(item=> !ar1.includes(item));
+  return result1.concat(result2);
+
+}
+
+console.log(diffArray(["car", "bike", "bus"], ["bike", "train", "plane", "bus"]));
