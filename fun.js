@@ -683,29 +683,36 @@
  * Element Skipper
  */
 
-function func(n) {
-  return n > 5;
-}
-const dropElements = (arr, func) => {
-  let index = 0;
-  let isFind = false;
-  for (let i = 0; i < arr.length; i++) {
-    isFind = func(arr[i]);
-    if (isFind) {
-      index = i;
-      break;
-    }
-  }
-  let result = [];
-  if (isFind) {
-    for (let i = index; i < arr.length; i++) {
-      result.push(arr[i]);
-    }
-  }else{
-    return result;
-  }
+// function func(n) {
+//   return n > 5;
+// }
+// const dropElements = (arr, func) => {
+//   let index = 0;
+//   let isFind = false;
+//   for (let i = 0; i < arr.length; i++) {
+//     isFind = func(arr[i]);
+//     if (isFind) {
+//       index = i;
+//       break;
+//     }
+//   }
+//   let result = [];
+//   if (isFind) {
+//     for (let i = index; i < arr.length; i++) {
+//       result.push(arr[i]);
+//     }
+//   }else{
+//     return result;
+//   }
 
-  return result;
+//   return result;
+// };
+
+// console.log(dropElements([1, 2, 3, 4], func));
+
+const getIndexToIns = (arr, num) => {
+  arr.sort((a, b) => a - b);
+  let index= arr.findIndex((value) => value >= num);
+  return index ===-1 ? arr.length:index;
 };
-
-console.log(dropElements([1, 2, 3, 4], func));
+console.log(getIndexToIns([3, 10, 5], 11));
