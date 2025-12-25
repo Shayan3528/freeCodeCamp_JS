@@ -717,7 +717,6 @@
 // };
 // console.log(getIndexToIns([3, 10, 5], 11));
 
-
 // const diffArray = (ar1, ar2) => {
 //   let result1 = ar1.filter(item => !ar2.includes(item));
 //   let result2 = ar2.filter(item=> !ar1.includes(item));
@@ -730,8 +729,22 @@
  * Implement a value Remover Funtion
  */
 
-const destroyer =(arr,...arg)=>{
-  return arr.filter(item=>!arg.includes(item));
-}
+// const destroyer =(arr,...arg)=>{
+//   return arr.filter(item=>!arg.includes(item));
+// }
 
-console.log(destroyer([1, 2, 3, 5, 1, 2, 3], 2, 3));
+// console.log(destroyer([1, 2, 3, 5, 1, 2, 3], 2, 3));
+
+const whatIsInAName = (arr, obj) => {
+  const sourceKey = Object.keys(obj);
+  return arr.filter((item) =>
+    sourceKey.every((key) => item.hasOwnProperty(key) && item[key] === obj[key])
+  );
+};
+
+console.log(
+  whatIsInAName(
+    [{ apple: 1, bat: 2 }, { bat: 2 }, { apple: 1, bat: 2, cookie: 2 }],
+    { apple: 1, bat: 2 }
+  )
+);
