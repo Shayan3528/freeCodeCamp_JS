@@ -735,16 +735,70 @@
 
 // console.log(destroyer([1, 2, 3, 5, 1, 2, 3], 2, 3));
 
-const whatIsInAName = (arr, obj) => {
-  const sourceKey = Object.keys(obj);
-  return arr.filter((item) =>
-    sourceKey.every((key) => item.hasOwnProperty(key) && item[key] === obj[key])
-  );
-};
+// const whatIsInAName = (arr, obj) => {
+//   const sourceKey = Object.keys(obj);
+//   return arr.filter((item) =>
+//     sourceKey.every((key) => item.hasOwnProperty(key) && item[key] === obj[key])
+//   );
+// };
 
-console.log(
-  whatIsInAName(
-    [{ apple: 1, bat: 2 }, { bat: 2 }, { apple: 1, bat: 2, cookie: 2 }],
-    { apple: 1, bat: 2 }
-  )
-);
+// console.log(
+//   whatIsInAName(
+//     [{ apple: 1, bat: 2 }, { bat: 2 }, { apple: 1, bat: 2, cookie: 2 }],
+//     { apple: 1, bat: 2 }
+//   )
+// );
+
+/**
+ * find out prime number through sieveOfEratosthenes
+ */
+
+// function primeNumberArray(n) {
+//   let primes = new Array(n + 1).fill(true);
+//   primes[0] = primes[1] = false;
+//   for (let i = 2; i * i <= n; i++) {
+//     if (primes[i]) {
+//       for (let j = i * i; j <= n; j = j + i) {
+//         primes[j] = false;
+//       }
+//     }
+//   }
+//   let result=[];
+//   for(let i=2;i<=n;i++){
+//     if(primes[i]){
+//       result.push(i);
+//     }
+//   }
+//   return result;
+// }
+
+// console.log(primeNumberArray(20));
+
+const sumPrimes=(num)=>{
+  if(num <2) return 0;
+  let primes = new Array(num+1).fill(true);
+  primes[0]=primes[1]= false;
+
+  for(let i=2;i*i<=num;i++){
+    if(primes[i]){
+      for(let j=i*i;j<=num;j=j+i){
+        primes[j]= false;
+      }
+    }
+  }
+
+  let primeArray=[];
+  for(let i=2;i<=num;i++){
+    if(primes[i]){
+      primeArray.push(i);
+    }
+  }
+  let sum = 0;
+  for(let i=0;i<primeArray.length;i++){
+    sum +=primeArray[i];
+  }
+  return sum;
+
+}
+
+console.log(sumPrimes(10));
